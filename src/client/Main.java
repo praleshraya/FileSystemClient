@@ -5,7 +5,7 @@ import java.io.*;
 import java.net.*;
 
 public class Main {
-    //    private static final String SERVER_IP = "127.0.0.1";
+//        private static final String SERVER_IP = "127.0.0.1";
     private static final String SERVER_IP = "172.174.237.106";
 
     private static final int SERVER_PORT = 6789;
@@ -26,10 +26,20 @@ public class Main {
                 if (userInput.equals("QUIT")) {
                     break;
                 }
+                if(userInput.startsWith("WRITE"))
+                {
+                    String dataInput;
+                  while (!(dataInput= stdIn.readLine()).equals("END"))
+                  {
+                      out.println(dataInput);
+                  }
+                  out.println("END");
+                }
                 System.out.println("Server says:");
                 String response;
                 while (!(response = in.readLine()).equals("END")) {
                     System.out.println(response);
+
                 }
             }
         } catch (UnknownHostException e) {
